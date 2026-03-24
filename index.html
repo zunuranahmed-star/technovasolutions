@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Technova Solutions | Father & Son Digital Agency</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F9F5EB;  /* warm beige base */
+      color: #1E1E1E; /* near black */
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: #FFFFFF;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #E8E0D5;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #1E1E1E;
+    }
+    .logo span {
+      font-weight: 500;
+      color: #6B4E2E;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2C2C2C;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #6B4E2E;
+    }
+    .btn-outline-dark {
+      background: transparent;
+      border: 1px solid #D4C9BB;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: all 0.2s;
+      color: #2C2C2C;
+    }
+    .btn-outline-dark:hover {
+      border-color: #6B4E2E;
+      background: #F3EFE8;
+    }
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #1E1E1E;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: #1E1E1E;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .btn-primary:hover {
+      background: #3A2C24;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #C7BCAB;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #1E1E1E;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: #6B4E2E;
+      background: #F3EFE8;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      text-align: center;
+      color: #1E1E1E;
+    }
+    .section-sub {
+      text-align: center;
+      color: #4A4238;
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+      font-size: 1.2rem;
+    }
+
+    /* Hero with background image overlay */
+    .hero {
+      padding: 80px 0 80px;
+      background: linear-gradient(rgba(249, 245, 235, 0.85), rgba(249, 245, 235, 0.92)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid #E8E0D5;
+    }
+    .hero-content {
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #1E1E1E;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #3A3329;
+      margin-bottom: 32px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* About section with image */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #1E1E1E;
+    }
+    .about-text p {
+      color: #3E362E;
+      margin-bottom: 20px;
+    }
+    .badge-exp {
+      display: inline-flex;
+      background: #EBE3D9;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #6B4E2E;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+    .about-image img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      object-fit: cover;
+      height: auto;
+      border: 1px solid #E2D8CD;
+    }
+
+    /* Services cards (white on beige) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+    .service-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #E8E0D5;
+      transition: all 0.25s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #CFC3B2;
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+    }
+    .service-icon {
+      font-size: 2.4rem;
+      color: #6B4E2E;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1E1E1E;
+    }
+    .service-card p {
+      color: #4A4238;
+    }
+
+    /* Why choose us - beige cards */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .why-item {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px solid #E8E0D5;
+    }
+    .why-item i {
+      font-size: 2.5rem;
+      color: #6B4E2E;
+      margin-bottom: 20px;
+    }
+    .why-item h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1E1E1E;
+    }
+    .why-item p {
+      color: #4A4238;
+    }
+
+    /* CTA section with black/beige contrast */
+    .cta-section {
+      background: #1E1E1E;
+      border-radius: 48px;
+      padding: 64px 48px;
+      color: #F9F5EB;
+      margin: 40px 0;
+    }
+    .cta-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cta-left h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+    .cta-left p {
+      opacity: 0.85;
+      margin-bottom: 28px;
+      max-width: 450px;
+      color: #E8E0D5;
+    }
+    .btn-white {
+      background: #F9F5EB;
+      color: #1E1E1E;
+      padding: 12px 30px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 16px;
+      transition: 0.2s;
+    }
+    .btn-white:hover {
+      background: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .btn-outline-white {
+      border: 1px solid #F9F5EB;
+      background: transparent;
+      padding: 12px 30px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #F9F5EB;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.2s;
+    }
+    .btn-outline-white:hover {
+      background: rgba(249, 245, 235, 0.1);
+    }
+    .contact-form {
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 28px;
+      min-width: 280px;
+      flex: 1;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      border: 1px solid #E2D8CD;
+      border-radius: 28px;
+      font-family: inherit;
+      outline: none;
+      background: #FFFFFF;
+    }
+    .contact-form button {
+      width: 100%;
+      background: #1E1E1E;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .contact-form button:hover {
+      background: #3A2C24;
+    }
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #E8E0D5;
+      color: #6C5E4F;
+      background: #F9F5EB;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .cta-flex {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      .hero {
+        padding: 60px 0;
+      }
+    }
+    .mobile-nav-active {
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: #FFFFFF;
+      padding: 28px;
+      gap: 20px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+      border-bottom: 1px solid #E8E0D5;
+      z-index: 99;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">technova<span>solutions</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Legacy Code.<br>Modern Growth.</h1>
+          <p>The Father-Son Agency Where 15 Years of Engineering Meets Next-Gen Innovation.<br>Stop choosing between rock-solid reliability and cutting-edge design. Get both.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Get a Free Quote</a>
+            <a href="tel:+923001234567" class="btn-secondary"><i class="fas fa-phone-alt"></i> Call Us Today</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section with Image -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="badge-exp"><i class="fas fa-code"></i> 15+ years legacy & fresh vision</div>
+            <h2>Experience Meets Innovation</h2>
+            <p>We aren’t just another web development agency. We are a unique partnership built on decades of trust, precision, and a shared passion for digital excellence.</p>
+            <p>Our story begins with a father — a veteran software engineer with over 15 years of experience in enterprise-level architecture. He mastered the backend, ensuring systems are secure, scalable, and bulletproof. Alongside him is his son, a new-generation digital native who breathes modern UI/UX, social media dynamics, and high-conversion design.</p>
+            <p>Based in Pakistan, our standards are global. We deliver enterprise-level quality without the corporate price tag.</p>
+          </div>
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Father and son team collaborating" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background: #FDF9F2;">
+      <div class="container">
+        <h2 class="section-title">What We Build</h2>
+        <p class="section-sub">Complete digital ecosystem under one roof — from first line of code to final social post.</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-globe"></i></div>
+            <h3>Website Development</h3>
+            <p>Responsive, fast, secure websites. Enterprise-level backend architecture ensures bulletproof performance on any device.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
+            <h3>Landing Pages</h3>
+            <p>High-impact, conversion-focused pages engineered to capture leads and drive sales with persuasive UX.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-cart-shopping"></i></div>
+            <h3>E‑commerce Stores</h3>
+            <p>WooCommerce, Shopify or custom solutions. Seamless shopping experience, secure payments, and inventory control.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>Social Media Marketing</h3>
+            <p>Strategic campaigns to drive traffic, build community, and increase brand visibility across platforms.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-video"></i></div>
+            <h3>Video Editing</h3>
+            <p>Stunning reels, explainer videos, and promo content that stop the scroll and tell your story effectively.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us">
+      <div class="container">
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-sub">The smart choice for Pakistani businesses, startups, and global entrepreneurs.</p>
+        <div class="why-grid">
+          <div class="why-item">
+            <i class="fas fa-handshake"></i>
+            <h3>Best of Both Worlds</h3>
+            <p>Senior engineer stability + fresh creative energy. No compromises, only competitive edge.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Extreme Reliability</h3>
+            <p>When a father’s reputation meets his son’s future, cutting corners is not an option. We meet deadlines and own our work.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-coins"></i>
+            <h3>Cost‑Effective Excellence</h3>
+            <p>International quality at rates that make sense for startups and growing small businesses. Pakistan-based, global standards.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-layer-group"></i>
+            <h3>Full‑Service Convenience</h3>
+            <p>Developers, marketers, video editors — one team. We build it, market it, and help you grow it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action + Contact Form -->
+    <div class="container" id="contact">
+      <div class="cta-section">
+        <div class="cta-flex">
+          <div class="cta-left">
+            <h2>Ready to Build Something That Lasts?</h2>
+            <p>Whether you're a startup looking for your first website or an established business needing a digital revamp, we are ready to help. No jargon, no pressure — just honest advice from a team that cares about your success.</p>
+            <div>
+              <a href="#" class="btn-white" id="quoteTrigger"><i class="fas fa-paper-plane"></i> Get a Free Quote</a>
+              <a href="tel:+923001234567" class="btn-outline-white"><i class="fas fa-phone"></i> Call Us Today</a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h3 style="margin-bottom: 16px; color:#1E1E1E;">Send a quick message</h3>
+            <form id="contactForm" action="#" method="post">
+              <input type="text" placeholder="Full name" required>
+              <input type="email" placeholder="Email address" required>
+              <input type="tel" placeholder="Phone (optional)">
+              <textarea rows="2" placeholder="Tell us about your project..."></textarea>
+              <button type="submit">Request Quote →</button>
+            </form>
+            <p style="font-size:0.75rem; margin-top:12px; text-align:center;">We'll reply within 24h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p><i class="fas fa-map-marker-alt"></i> Lahore | Islamabad | Karachi — Serving businesses worldwide</p>
+        <p style="margin-top: 12px;">© 2025 Technova Solutions — Father & Son Digital Agency | 15 years of trust, next‑gen innovation</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-nav-active');
+    });
+    document.querySelectorAll('#navLinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('mobile-nav-active');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#" || targetId === "") return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Form alert (demo)
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("Thank you for reaching out! The Technova team (father & son) will respond shortly.");
+        form.reset();
+      });
+    }
+    const quoteBtn = document.getElementById('quoteTrigger');
+    if (quoteBtn) {
+      quoteBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        const firstInput = document.querySelector('#contactForm input');
+        if (firstInput) firstInput.focus();
+      });
+    }
+  </script>
+</body>
+</html>
