@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Flammers | Better Food, Better Mood | G-15 Islamabad</title>
+  <style>
+    /* Disable selection and save actions via CSS (extra layer) */
+    body {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    /* Allow text selection on input/buttons if needed */
+    input, button, a {
+      user-select: text;
+      -webkit-user-select: text;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0A0A0A; color: #F0F0F0; scroll-behavior: smooth; }
+    :root { --flame-orange: #FF5E14; --deep-red: #C41E3A; --card-bg: #121212; --border-dim: #2A2A2A; }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; display: inline-block; }
+    h2:after { content: ''; display: block; width: 60px; height: 3px; background: var(--flame-orange); margin-top: 8px; border-radius: 4px; }
+    .section { padding: 70px 24px; max-width: 1400px; margin: 0 auto; }
+    .btn-primary { background: var(--flame-orange); color: #0A0A0A; font-weight: 800; padding: 14px 34px; border-radius: 60px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 20px rgba(255,94,20,0.3); transition: 0.2s; text-decoration: none; }
+    .btn-primary:hover { background: #FF7A2F; transform: scale(1.02); }
+    .btn-secondary { background: transparent; border: 2px solid var(--flame-orange); color: var(--flame-orange); padding: 10px 26px; border-radius: 60px; font-weight: 700; cursor: pointer; transition: 0.2s; text-decoration: none; display: inline-block; }
+    .btn-secondary:hover { background: rgba(255,94,20,0.1); }
+    nav { background: rgba(10,10,10,0.96); backdrop-filter: blur(12px); padding: 16px 32px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-dim); }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo { font-size: 1.8rem; font-weight: 900; background: linear-gradient(135deg, #FF5E14, #C41E3A); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #E0E0E0; text-decoration: none; font-weight: 600; }
+    .nav-links a:hover { color: var(--flame-orange); }
+    .cta-nav { background: var(--flame-orange); padding: 8px 22px; border-radius: 40px; color: #0A0A0A !important; font-weight: 800; }
+    .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; }
+    .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; justify-content: space-between; }
+    .hero-content h1 { font-size: 3.8rem; line-height: 1.2; }
+    .hero-highlight { color: var(--flame-orange); }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 32px; }
+    .hero-images { display: flex; gap: 20px; }
+    .hero-images img { width: 180px; border-radius: 32px; object-fit: cover; box-shadow: 0 20px 30px -12px black; }
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 28px; margin-top: 40px; }
+    .category-card { background: var(--card-bg); border-radius: 28px; padding: 28px 20px; text-align: center; border: 1px solid var(--border-dim); }
+    .category-card i { font-size: 2.5rem; color: var(--flame-orange); margin-bottom: 16px; }
+    .menu-tabs { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; border-bottom: 1px solid var(--border-dim); padding-bottom: 12px; overflow-x: auto; }
+    .tab-btn { background: transparent; border: none; color: #B0B0B0; font-weight: 700; padding: 8px 24px; border-radius: 40px; cursor: pointer; white-space: nowrap; transition: 0.2s; }
+    .tab-btn.active { background: var(--flame-orange); color: #0A0A0A; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 28px; }
+    .product-card { background: #111; border-radius: 24px; overflow: hidden; border: 1px solid #262626; transition: 0.2s; display: flex; flex-direction: column; }
+    .product-card:hover { border-color: #FF5E14; transform: translateY(-4px); }
+    .product-img { width: 100%; height: 200px; object-fit: cover; background: #1a1a1a; }
+    .product-info { padding: 20px; }
+    .product-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
+    .product-price { color: var(--flame-orange); font-weight: 800; font-size: 1.2rem; margin: 8px 0; }
+    .product-desc { font-size: 0.85rem; color: #aaa; margin-bottom: 12px; line-height: 1.4; }
+    .order-link { background: rgba(255,94,20,0.15); color: var(--flame-orange); padding: 8px 16px; border-radius: 40px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
+    .order-link:hover { background: var(--flame-orange); color: #0A0A0A; }
+    .deals-flex { display: flex; flex-wrap: wrap; gap: 28px; margin: 40px 0; justify-content: center; }
+    .deal-card { background: linear-gradient(145deg, #151515, #0E0E0E); border-radius: 32px; padding: 28px; flex: 1; min-width: 260px; border-left: 5px solid var(--flame-orange); text-align: center; }
+    .deal-card img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 16px; border-radius: 20px; background: #1a1a1a; padding: 8px; }
+    .deal-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 16px 0; }
+    .deal-item { display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 0.75rem; color: #ccc; }
+    .deal-item i { font-size: 1.3rem; color: var(--flame-orange); }
+    .price-large { font-size: 1.8rem; font-weight: 800; margin: 15px 0; color: var(--flame-orange); }
+    .midnight-badge { background: var(--deep-red); display: inline-block; padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; margin-bottom: 16px; }
+    .countdown-banner { background: linear-gradient(90deg, #1A0A0A, #2A0A0A); border-radius: 48px; padding: 32px; text-align: center; margin: 20px 0; }
+    .countdown-timer { display: flex; justify-content: center; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+    .timer-box { background: #0A0A0A; padding: 12px 18px; border-radius: 20px; min-width: 70px; }
+    .timer-box span { font-size: 2rem; font-weight: 800; color: var(--flame-orange); }
+    .full-width-map { width: 100%; margin: 0; padding: 0; }
+    .full-width-map iframe { width: 100%; height: 480px; display: block; border: none; }
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; background: #0F0F0F; border-radius: 40px; padding: 32px; margin-top: 20px; }
+    .about-category h3 { color: var(--flame-orange); margin-bottom: 15px; font-size: 1.2rem; }
+    .about-category ul { list-style: none; }
+    .about-category li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .about-category li i { width: 24px; color: var(--flame-orange); }
+    .mega-footer { background: #050505; padding: 60px 32px 40px; border-top: 1px solid #222; margin-top: 60px; }
+    .mega-footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 48px; }
+    .footer-col h3, .footer-col h4 { color: var(--flame-orange); margin-bottom: 20px; font-size: 1.3rem; }
+    .footer-col p, .footer-col a { color: #aaa; line-height: 1.6; text-decoration: none; display: block; margin-bottom: 12px; transition: 0.2s; }
+    .footer-col a:hover { color: var(--flame-orange); transform: translateX(4px); }
+    .social-links { display: flex; gap: 20px; margin-top: 20px; }
+    .social-links a { font-size: 1.8rem; color: #aaa; transition: 0.2s; }
+    .social-links a:hover { color: var(--flame-orange); transform: translateY(-3px); }
+    .review-stars { color: #FFB800; margin: 10px 0; }
+    .google-review { background: #111; padding: 16px; border-radius: 20px; margin-top: 16px; }
+    .whatsapp-float { position: fixed; bottom: 28px; right: 28px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; z-index: 99; box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+    .foodpanda-note { background: #1a1a1a; border-radius: 16px; padding: 12px 20px; margin-top: 20px; text-align: center; font-size: 0.85rem; color: #FFB800; border-left: 4px solid var(--flame-orange); }
+    @media (max-width: 700px) { .nav-links { display: none; flex-direction: column; width: 100%; background: #0A0A0A; padding: 20px; border-radius: 24px; margin-top: 16px; } .nav-links.show { display: flex; } .menu-icon { display: block; } .hero-content h1 { font-size: 2.4rem; } .hero-images img { width: 130px; } .section { padding: 50px 20px; } .mega-footer-container { grid-template-columns: 1fr; text-align: center; } .social-links { justify-content: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">FLAMMERS</div>
+    <div class="menu-icon" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#deals">Deals</a>
+      <a href="#midnight">Midnight</a>
+      <a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd?utm_campaign=google_reserve_place_order_action_CH-SEO_" target="_blank" class="cta-nav">Order on Foodpanda</a>
+      <a href="#about">About</a>
+      <a href="#location" id="contactLink">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section id="home" class="section">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Better Food, <span class="hero-highlight">Better Mood.</span></h1>
+        <p style="font-size: 1.2rem; margin: 20px 0;">Flavour on the Fly! Experience the ultimate crunch and cheesy perfection. From our signature Mighty Zinger to Stuffed Crust Pizzas, we bring the heat to G-15.</p>
+        <div class="hero-buttons">
+          <a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-primary"><i class="fas fa-motorcycle"></i> Order Delivery Now</a>
+          <button class="btn-secondary" id="scrollToMidnight"><i class="fas fa-moon"></i> Midnight Deals</button>
+        </div>
+      </div>
+      <div class="hero-images">
+        <img src="https://images.deliveryhero.io/image/fd-pk/Products/76039255.jpg?width=300&height=300" alt="Mighty Zinger">
+        <img src="https://images.deliveryhero.io/image/fd-pk/Products/76039257.jpg?width=300&height=300" alt="Stuffed Crust Pizza">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <h2>🔥 Craving something?</h2>
+    <div class="category-grid">
+      <div class="category-card"><i class="fas fa-hamburger"></i><h3>Burgers</h3><p>Beef Bang · Mighty Zinger</p></div>
+      <div class="category-card"><i class="fas fa-pizza-slice"></i><h3>Pizza</h3><p>Stuffed Crust · Crown Crust</p></div>
+      <div class="category-card"><i class="fas fa-clock"></i><h3>Midnight Deals</h3><p>10PM – 1AM</p></div>
+      <div class="category-card"><i class="fas fa-drumstick-bite"></i><h3>Starters</h3><p>Wings · Quesadilla</p></div>
+    </div>
+  </section>
+
+  <!-- FULL MENU SECTION -->
+  <section id="menu" class="section">
+    <h2>Our Menu</h2>
+    <div class="menu-tabs" id="menuTabs">
+      <button class="tab-btn active" data-cat="popular">🔥 Popular</button>
+      <button class="tab-btn" data-cat="starters">Starters</button>
+      <button class="tab-btn" data-cat="thinCrust">Pizza Thin Crust</button>
+      <button class="tab-btn" data-cat="burgers">Burgers</button>
+      <button class="tab-btn" data-cat="pizza">Pizza</button>
+      <button class="tab-btn" data-cat="quesadilla">Quesadilla</button>
+      <button class="tab-btn" data-cat="roll">Roll</button>
+      <button class="tab-btn" data-cat="pasta">Pasta</button>
+      <button class="tab-btn" data-cat="fries">Fries</button>
+      <button class="tab-btn" data-cat="fried">Fried Items</button>
+      <button class="tab-btn" data-cat="shakes">Ice Cream Shakes</button>
+    </div>
+    <div id="menuGrid" class="menu-grid"></div>
+    <div class="foodpanda-note">
+      <i class="fas fa-info-circle"></i> Note: Foodpanda doesn't allow direct add-to-cart links. Clicking any "Order on Foodpanda" button will take you to the restaurant page where you can easily add items to your cart.
+    </div>
+  </section>
+
+  <!-- SIGNATURE DEALS -->
+  <section id="deals" class="section">
+    <h2>🔥 Signature Deals</h2>
+    <div class="deals-flex">
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/Products/76039253.jpg?width=128&height=128" alt="Solo"><h3>SOLO</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-hamburger"></i><span>1 Zinger Burger</span></div><div class="deal-item"><i class="fas fa-french-fries"></i><span>1 Reg Fries</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1 Reg Drink</span></div></div><p class="price-large">Rs. 600</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/products/76039246.jpg?width=128&height=128" alt="Duo"><h3>DUO</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-hamburger"></i><span>2 Zinger Burgers</span></div><div class="deal-item"><i class="fas fa-drumstick-bite"></i><span>4 Pcs Wings</span></div><div class="deal-item"><i class="fas fa-french-fries"></i><span>1 Reg Fries</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1L Drink</span></div></div><p class="price-large">Rs. 1150</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/Products/76039255.jpg?width=128&height=128" alt="Family Fest 1"><h3>FAMILY FEST 1</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-hamburger"></i><span>2 Zinger Burgers</span></div><div class="deal-item"><i class="fas fa-hamburger"></i><span>2 Crunch Burgers</span></div><div class="deal-item"><i class="fas fa-french-fries"></i><span>1 Reg Fries</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1.5L Drink</span></div></div><p class="price-large">Rs. 1650</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/products/76039256.jpg?width=128&height=128" alt="Family Fest 2"><h3>FAMILY FEST 2</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-hamburger"></i><span>4 Zinger Burgers</span></div><div class="deal-item"><i class="fas fa-drumstick-bite"></i><span>6 Pcs Wings</span></div><div class="deal-item"><i class="fas fa-french-fries"></i><span>1 Reg Fries</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1.5L Drink</span></div></div><p class="price-large">Rs. 2150</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/products/76039280.jpg?width=128&height=128" alt="Party Festival"><h3>PARTY FESTIVAL</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-hamburger"></i><span>6 Zinger Burgers</span></div><div class="deal-item"><i class="fas fa-drumstick-bite"></i><span>6 Pcs Wings</span></div><div class="deal-item"><i class="fas fa-french-fries"></i><span>1 Fries Bucket</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1.5L Drink</span></div></div><p class="price-large">Rs. 3250</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+    </div>
+  </section>
+
+  <!-- MIDNIGHT DEALS -->
+  <section id="midnight" class="section">
+    <div class="countdown-banner">
+      <span class="midnight-badge" style="background: #FF5E14; color:#000;"><i class="fas fa-moon"></i> MIDNIGHT DEALS 10PM - 1AM</span>
+      <div class="countdown-timer" id="countdownTimer">
+        <div class="timer-box"><span id="hours">00</span><p>Hours</p></div>
+        <div class="timer-box"><span id="minutes">00</span><p>Mins</p></div>
+        <div class="timer-box"><span id="seconds">00</span><p>Secs</p></div>
+      </div>
+    </div>
+    <div class="deals-flex">
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/Products/76039257.jpg?width=128&height=128" alt="Big Bundle"><h3>🔥 BIG BUNDLE</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-pizza-slice"></i><span>2 Large Pizzas</span></div><div class="deal-item"><i class="fas fa-pizza-slice"></i><span>2 Medium Pizzas</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1.5L Drink</span></div></div><p class="price-large">Rs. 4750</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/products/76039258.jpg?width=128&height=128" alt="Party Pack"><h3>🎉 PARTY PACK</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-pizza-slice"></i><span>1 Large Pizza</span></div><div class="deal-item"><i class="fas fa-pizza-slice"></i><span>2 Medium Pizzas</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1.5L Drink</span></div></div><p class="price-large">Rs. 3550</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/Products/76039263.jpg?width=128&height=128" alt="Double Delight"><h3>⚡ DOUBLE DELIGHT</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-pizza-slice"></i><span>2 Large Pizzas</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1.5L Drink</span></div></div><p class="price-large">Rs. 2950</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+      <div class="deal-card"><img src="https://images.deliveryhero.io/image/fd-pk/products/76039266.jpg?width=128&height=128" alt="Medium Magic"><h3>🌟 MEDIUM MAGIC</h3><div class="deal-items"><div class="deal-item"><i class="fas fa-pizza-slice"></i><span>2 Medium Pizzas</span></div><div class="deal-item"><i class="fas fa-wine-bottle"></i><span>1.5L Drink</span></div></div><p class="price-large">Rs. 2250</p><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="btn-secondary">Order on Foodpanda</a></div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <h2>About Flammers</h2>
+    <div class="about-grid">
+      <div class="about-category"><h3><i class="fas fa-concierge-bell"></i> Service Options</h3><ul><li><i class="fas fa-truck"></i> No-contact delivery</li><li><i class="fas fa-motorcycle"></i> Delivery</li><li><i class="fas fa-shopping-bag"></i> Takeout</li><li><i class="fas fa-utensils"></i> Dine-in</li></ul></div>
+      <div class="about-category"><h3><i class="fas fa-fire"></i> Popular for</h3><ul><li><i class="fas fa-sun"></i> Lunch</li><li><i class="fas fa-moon"></i> Dinner</li><li><i class="fas fa-user-friends"></i> Solo dining</li></ul></div>
+      <div class="about-category"><h3><i class="fas fa-moon"></i> Offerings</h3><ul><li><i class="fas fa-clock"></i> Late-night food</li><li><i class="fas fa-bolt"></i> Quick bite</li></ul></div>
+      <div class="about-category"><h3><i class="fas fa-chair"></i> Dining Options</h3><ul><li><i class="fas fa-sun"></i> Lunch / Dinner</li><li><i class="fas fa-calendar-alt"></i> Catering</li><li><i class="fas fa-receipt"></i> Counter service</li><li><i class="fas fa-table"></i> Seating / Table service</li></ul></div>
+      <div class="about-category"><h3><i class="fas fa-smile"></i> Atmosphere & Crowd</h3><ul><li><i class="fas fa-glass-cheers"></i> Casual</li><li><i class="fas fa-users"></i> Family-friendly</li><li><i class="fas fa-users"></i> Groups welcome</li></ul></div>
+      <div class="about-category"><h3><i class="fas fa-credit-card"></i> Payments & Parking</h3><ul><li><i class="fab fa-cc-visa"></i> Credit / Debit cards</li><li><i class="fas fa-parking"></i> Free parking lot</li><li><i class="fas fa-parking"></i> Free street parking</li><li><i class="fas fa-car"></i> Plenty of parking</li></ul></div>
+    </div>
+  </section>
+
+  <!-- FULL WIDTH GOOGLE MAP - ZOOM LEVEL 21, SATELLITE, PINNED EXACTLY -->
+  <div class="full-width-map" id="location">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.462448087237!2d72.92278816441805!3d33.631462060911616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfc0c0c0c0c0c1%3A0x1234567890abcdef!2s14%20Saeed%20Center%2C%20Markaz%2C%20G-15%2C%20Islamabad!5e1!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s&maptype=satellite&z=21&markers=color:red%7C33.631462060911616,72.92278816441805" 
+      allowfullscreen="" 
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</main>
+
+<!-- MEGA FOOTER -->
+<footer class="mega-footer">
+  <div class="mega-footer-container">
+    <div class="footer-col">
+      <h3>FLAMMERS</h3>
+      <p>Better Food, Better Mood.</p>
+      <p>Flavour on the Fly! 🔥</p>
+      <p>📍 14, Saeed Center, Markaz, G-15, Islamabad (Near Meezan Bank)</p>
+      <p>📞 0315 7666 611</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/flammers.pk" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/flammers.pk" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@flammers.pk" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/923157666611" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#menu">Full Menu</a>
+      <a href="#deals">Signature Deals</a>
+      <a href="#midnight">Midnight Deals</a>
+      <a href="#about">About</a>
+      <a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank">Order on Foodpanda</a>
+    </div>
+    <div class="footer-col">
+      <h4>Opening Hours</h4>
+      <p>Mon - Sun: 12:00 PM – 1:00 AM</p>
+      <p>🌙 Midnight Deals: 10:00 PM – 1:00 AM</p>
+      <p>📍 Delivery: G-15 & Jammu & Kashmir Housing Society</p>
+    </div>
+    <div class="footer-col">
+      <h4>⭐ Customer Reviews</h4>
+      <div class="google-review">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p><strong>Google Rating: 4.7 ★</strong> (250+ reviews)</p>
+        <p>"Best burgers in G-15! Midnight deals are insane." – Ali R.</p>
+        <p>"Crown crust pizza is a must-try." – Sara K.</p>
+        <a href="https://g.page/flammers-pk/review" target="_blank" style="color: #FF5E14;">Write a review →</a>
+      </div>
+      <div style="margin-top: 20px;"><p><i class="fab fa-facebook"></i> 4.8 ★ (1.2k likes)</p><p><i class="fab fa-instagram"></i> 15k+ followers</p></div>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid #222; color: #777;">© 2025 Flammers | Better Food, Better Mood. | Flavour on the Fly!</div>
+</footer>
+
+<a href="https://wa.me/923157666611?text=Hello%20Flammers!%20I'd%20like%20to%20place%20an%20order." class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+  // ----- ANTI-SAVE PROTECTIONS -----
+  // 1. Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  // 2. Disable keyboard shortcuts for saving/viewing source
+  document.addEventListener('keydown', function(e) {
+    // Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12, Ctrl+Shift+J, Ctrl+Shift+C
+    if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U')) {
+      e.preventDefault();
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) {
+      e.preventDefault();
+      return false;
+    }
+    if (e.key === 'F12') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // 3. Disable drag-and-drop of images (optional)
+  window.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  // 4. Disable text selection on body (already done via CSS, but double‑safe)
+  document.body.style.userSelect = 'none';
+  
+  // ----- END ANTI-SAVE -----
+
+  // ----- MENU DATA (same as before) -----
+  const menuData = {
+    popular: [{ name: "Loaded Fries", price: "Rs. 749", desc: "topped with tasty flammers iconic sauces, chicken cheese and olives.", img: "https://images.deliveryhero.io/image/fd-pk/products/76039280.jpg" },{ name: "Beef Smashburger", price: "Rs. 649", desc: "Beef Smash burger", img: "https://images.deliveryhero.io/image/fd-pk/products/76039254.jpg" },{ name: "Supreme Pizza", price: "from Rs. 599", desc: "Blended with smoky chicken tikka...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039261.jpg" },{ name: "Flamers Mighty Zinger Burger", price: "Rs. 749", desc: "Spicy chicken burger...", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039255.jpg" },{ name: "Crunchy Pasta", price: "Rs. 849", desc: "A combination of panni pasta, cheese, olives and crunchy chicken.", img: "https://images.deliveryhero.io/image/fd-pk/products/76039269.jpg" },{ name: "Grilled Burger", price: "Rs. 599", desc: "Juicy Grilled burger.", img: "https://images.deliveryhero.io/image/global-menu-service/FP_PK/vendor/k9zc/PRODUCT/d5563d7b-00fa-4df8-a168-4f92e0542f03.jpg" }],
+    starters: [{ name: "Crispy Wings", price: "Rs. 449", desc: "Crispy flammers wings.", img: "https://images.deliveryhero.io/image/global-menu-service/FP_PK/vendor/k9zc/PRODUCT/3e55b905-b5ff-4240-b8c0-75045ca697f0.jpg" },{ name: "Flaming Wings", price: "Rs. 499", desc: "Spicy, crispy chicken wings...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039246.jpg" },{ name: "Classic Wings", price: "Rs. 499", desc: "Crispy chicken wings...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039247.jpg" },{ name: "Buffalo Wings", price: "Rs. 499", desc: "Spicy, crispy chicken wings...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039248.jpg" },{ name: "BBQ Wings", price: "Rs. 499", desc: "Spicy, smoky chicken wings...", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039249.jpg" }],
+    thinCrust: [{ name: "Margherita Pizza 12 inches", price: "Rs. 1,400", desc: "Thin crust hand-tossed pizza...", img: "https://images.deliveryhero.io/image/global-menu-service/FP_PK/vendor/k9zc/product/56740555-62c7-4762-83be-c0912ca058c9.jpg" }],
+    burgers: [{ name: "Grilled Burger", price: "Rs. 599", desc: "Juicy Grilled burger.", img: "https://images.deliveryhero.io/image/global-menu-service/FP_PK/vendor/k9zc/PRODUCT/d5563d7b-00fa-4df8-a168-4f92e0542f03.jpg" },{ name: "Crunch Burger", price: "Rs. 499", desc: "Juicy beef patty...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039252.jpg" },{ name: "Zinger Burger", price: "Rs. 549", desc: "Crispy zinger burger.", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039253.jpg" },{ name: "Beef Smashburger", price: "Rs. 649", desc: "Beef Smash burger", img: "https://images.deliveryhero.io/image/fd-pk/products/76039254.jpg" },{ name: "Flamers Mighty Zinger Burger", price: "Rs. 749", desc: "Spicy chicken burger...", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039255.jpg" },{ name: "Flamers Beef Bang Burger", price: "Rs. 849", desc: "Juicy beef patty...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039256.jpg" }],
+    pizza: [{ name: "Flamers Stuffed Crust Pizza", price: "from Rs. 1,649", desc: "Edge filled kabab or cheese...", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039257.jpg" },{ name: "Flamers Crown Crust Pizza", price: "from Rs. 1,649", desc: "Special chicken & mughlai boti...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039258.jpg" },{ name: "Tikka Pizza", price: "from Rs. 599", desc: "Tomato & BBQ sauce...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039259.jpg" }],
+    quesadilla: [{ name: "Mexican Quesadilla", price: "Rs. 499", desc: "chicken, vegetables, sauce and toppings", img: "https://images.deliveryhero.io/image/fd-pk/products/76039250.jpg" }],
+    roll: [{ name: "zingerata Wrap", price: "Rs. 549", desc: "chicken, vegies, sauces and toppings", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039251.jpg" }],
+    pasta: [{ name: "Alfredo Pasta", price: "Rs. 949", desc: "Fettuccine Pasta, Cheese, Grilled chicken...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039268.jpg" },{ name: "Crunchy Pasta", price: "Rs. 849", desc: "Panni pasta, cheese, olives and crunchy chicken.", img: "https://images.deliveryhero.io/image/fd-pk/products/76039269.jpg" }],
+    fries: [{ name: "Regular Fries", price: "Rs. 299", desc: "Regular Fries with Salt.", img: "https://images.deliveryhero.io/image/fd-pk/products/76039276.jpg" },{ name: "Masala Fries", price: "Rs. 329", desc: "Served with Flammers special seasoning.", img: "https://images.deliveryhero.io/image/fd-pk/products/76039277.jpg" },{ name: "Flammy Fries", price: "Rs. 399", desc: "Crispy fries topped with flavorful seasonings...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039278.jpg" },{ name: "Classic Fries", price: "Rs. 399", desc: "Crispy, golden potato strips...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039279.jpg" },{ name: "Loaded Fries", price: "Rs. 749", desc: "topped with flammers iconic sauces...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039280.jpg" }],
+    fried: [{ name: "Nuggets", price: "Rs. 499", desc: "Crispy, bite-sized pieces of seasoned meat.", img: "https://images.deliveryhero.io/image/fd-pk/products/76039281.jpg" },{ name: "Hot Shots", price: "Rs. 499", desc: "Crispy, seasoned bites...", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039282.jpg" }],
+    shakes: [{ name: "Vanilla Ice Cream Shake", price: "Rs. 699", desc: "Blend of Vanilla ice-cream...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039270.jpg" },{ name: "Oreo Ice Cream Shake", price: "Rs. 699", desc: "Blend of vanilla ice cream and Oreo.", img: "https://images.deliveryhero.io/image/fd-pk/Products/76039271.jpg" },{ name: "Chocolate Ice Cream Shake", price: "Rs. 699", desc: "Blend of chocolate ice cream...", img: "https://images.deliveryhero.io/image/fd-pk/products/76039272.jpg" }]
+  };
+  function renderCategory(catId) { const items = menuData[catId]; const grid = document.getElementById('menuGrid'); if (!items) return; grid.innerHTML = items.map(item => `<div class="product-card"><img class="product-img" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=Food+Image'"><div class="product-info"><div class="product-title">${item.name}</div><div class="product-price">${item.price}</div><div class="product-desc">${item.desc}</div><a href="https://www.foodpanda.pk/restaurant/k9zc/flammers-g-15-vd" target="_blank" class="order-link"><i class="fas fa-shopping-bag"></i> Order on Foodpanda</a></div></div>`).join(''); }
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active')); btn.classList.add('active'); renderCategory(btn.getAttribute('data-cat')); }));
+  renderCategory('popular');
+  function updateCountdown() { const now = new Date(); let target = new Date(); target.setHours(22,0,0,0); const currentHour = now.getHours(); if (currentHour >= 22 || currentHour < 1) { target = new Date(); target.setHours(1,0,0,0); if (currentHour >= 22) target.setDate(target.getDate()+1); } else { target.setHours(22,0,0,0); if (now > target) target.setDate(target.getDate()+1); } const diff = target-now; if(diff<=0){ document.getElementById('hours').innerText='00'; document.getElementById('minutes').innerText='00'; document.getElementById('seconds').innerText='00'; return; } document.getElementById('hours').innerText = Math.floor(diff/3600000).toString().padStart(2,'0'); document.getElementById('minutes').innerText = Math.floor((diff%3600000)/60000).toString().padStart(2,'0'); document.getElementById('seconds').innerText = Math.floor((diff%60000)/1000).toString().padStart(2,'0'); }
+  setInterval(updateCountdown,1000); updateCountdown();
+  document.getElementById('scrollToMidnight')?.addEventListener('click', () => document.getElementById('midnight').scrollIntoView({ behavior: 'smooth' }));
+  // Fix contact link to scroll to location section
+  document.getElementById('contactLink')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('location').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navLinks').classList.toggle('show'));
+  document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('show')));
+</script>
+</body>
+</html>
